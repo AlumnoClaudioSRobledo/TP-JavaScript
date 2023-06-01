@@ -18,5 +18,23 @@ function calPrecioFinal(){
 
  //modificiando dinámicamente el html para colocar el precio total en la pantalla
  document.getElementById("valorTotal").value=precioTotal;
-
 }
+
+function limpiarFormulario() {
+ document.getElementById("miForm").reset();
+}
+
+
+  // let email=document.getElementById("email").value;
+  
+  //  if(!email.includes("@"))
+  //  {
+
+  //   console.log("El correo debe contener @");  
+  //   document.getElementById("mensaje").innerHTML="El correo debe contener @"
+  //   document.getElementById("mensaje").className="text-danger fw-bold m-1 p-1 border rounded"
+
+  //  }
+  //  else{
+  //   console.log("El correo  conteniene @"); 
+  //  }

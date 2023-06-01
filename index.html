@@ -67,7 +67,7 @@
    </div>
 
    <!--Cards -->
-   <div class="container d-flex justify-content-center">
+   <div class="container d-flex flex-column  align-items-center flex-md-row justify-content-center mb-3 ">
       <div class="row">
          <div class="col-md">
 
@@ -75,8 +75,8 @@
                <div class="card-body">
                   <h5 class="card-title fw-bolder">Estudiante</h5>
                   <p class="card-text">Tienen un descuento</p>
-                  <a href="#" class="mb-5 p-3">80%</a>
-                  <p class="pt-4">*presentar documentacion</p>
+                  <p class="fw-bolder mb-3">80%</p>
+                  <p class="">*presentar documentacion</p>
 
                </div>
             </div>
@@ -87,21 +87,21 @@
                <div class="card-body">
                   <h5 class="card-title fw-bolder">Trainee</h5>
                   <p class="card-text">Tienen un descuento</p>
-                  <a href="#" class="mb-5 p-3">50%</a>
-                  <p class="pt-4">*presentar documentacion</p>
+                  <p class="fw-bolder mb-3">50%</p>
+                  <p class="">*presentar documentacion</p>
 
                </div>
             </div>
          </div>
 
-         <div class="col-md">
+         <div class="col-md ">
 
             <div class="card text-center mb-3 border border-warning" style="width: 18rem;">
                <div class="card-body">
                   <h5 class="card-title fw-bold">Junior</h5>
                   <p class="card-text">Tienen un descuento</p>
-                  <a href="#" class="mb-5 p-3">15%</a>
-                  <p class="pt-4">*presentar documentacion</p>
+                  <p class="fw-bolder mb-3">15%</p>
+                  <p class="">*presentar documentacion</p>
                </div>
             </div>
          </div>
@@ -109,23 +109,23 @@
    </div>
 
 
-   <div class="container">
-         <div class=" d-flex justify-content-center">
-            <div class="row  py-2 align-items-center">
-               <div class="col"> VENTA</div>
-            </div>
+      <div class=" d-flex justify-content-center">
+         <div class="row  py-2 align-items-center ">
+            <div class="col border border-0"> VENTA</div>
          </div>
-         <div class="d-flex justify-content-center pb-3">
+      </div>
+      <div class="d-flex justify-content-center pb-3">
 
-            <div class="row   align-items-center">
-               <div class="col fw-bolder fs-2">VALOR DE TICKET $200</div>
-            </div>
+         <div class="row   align-items-center">
+            <div class="col fw-bolder fs-2 border border-0">VALOR DE TICKET $200</div>
          </div>
+      </div>
 
-         <!-- formulario de inscripcion -->
-         <div class=" rounded-top ">
-            
-            <form action="#" method="post">
+
+      <!-- formulario de inscripcion -->
+      <div class="container rounded-top ">
+
+            <form action="#" method="post" id="miForm">
                <div class="row">
                   <div class="col-md mb-3">
                      <input type="text" name="nombre" id="nombre" class="form-control border-4 border-warning" required
@@ -139,74 +139,88 @@
 
                <div class="row">
                   <div class="col-md mb-3 ">
-                     <input type="email" name="email" id="email" class="form-control border-4 border-warning" required
+                     <input type="email" name="email" id="email" class="mb-3 form-control border-4 border-warning" required
                         placeholder="Correo">
+                       <div id="mensaje"></div> 
                   </div>
-                  
+
                </div>
 
-             
+
 
                <div class="row">
                   <div class="col-md mb-3">
-                     <span class="input-group-text d-flex justify-content-start">Cantidad</span> 
+                     <span class="input-group-text d-flex justify-content-start">Cantidad</span>
 
-                     <input type="number" name="cantEntradas" id="cantEntradas" onchange="calPrecioFinal()"
+                     <input type="number" min="1" name="cantEntradas" id="cantEntradas" onchange="calPrecioFinal()"
                         onkeyup="calPrecioFinal()" class="form-control border-4 border-warning" required
                         placeholder="cantidad">
+
+
                   </div>
                   <div class="col-md mb-3">
-                     <span class="input-group-text d-flex justify-content-start">Categoria</span> 
+                     <span class="input-group-text d-flex justify-content-start">Categoria</span>
 
                      <select class="form-select border-4 border-warning" id="porcDescuento" onchange="calPrecioFinal()">
                         <option value="80">Estudiante (desct. 80%)</option>
-                        <option value="50">Trainee (desct. 50%)</option>
+                        <option value="50" selected>Trainee (desct. 50%)</option>
                         <option value="15">Junior (desct. 15%)</option>
                      </select>
                   </div>
                   <div class="col-12 ">
                      <div class="input-group mb-3  ">
-                        <span class="input-group-text bg-primary-subtle">Total a Pagar: $</span> 
+                        <span class="input-group-text bg-primary-subtle">Total a Pagar: $</span>
                         <input type="text" name="valorTotal" id="valorTotal" disabled
-                           class="form-control bg-primary-subtle" placeholder="Total a Pagar con Descuento" data-bs-toggle="button">
+                           class="form-control bg-primary-subtle" placeholder="Total a Pagar con Descuento"
+                           data-bs-toggle="button">
                      </div>
                   </div>
                </div>
-               <div class="row">
-                  <div class="col">
-                     <input type="submit" value="Comprar" class=" mb-3 btn btn-lg   btn-primary ">
-                  </div>
 
+               <div class="container  d-flex flex-md-row justify-content-md-evenly">
+                  <div class="row">   
+                     <div class="col-md-6">
+                        <input type="button" onclick="limpiarFormulario()" value="Borrar"
+                        class="mb-3 px-auto  btn btn-lg   btn-primary" > 
+                        
+                     </div>
+                     <div class="col-md-6">
+                        <input type="submit" value="Comprar" class="mb-3 px-auto btn btn-lg   btn-primary"/>
+                     </div>
+                  </div>   
                </div>
-            </form>
-         </div>
-   </div>      
 
 
-       <!-- footer -->
-       <div class=" p-3  d-flex flex-md-row flex-column justify-content-md-evenly"
-       style="background-color: rgb(28, 56, 70);">
-       <div><a href="#"
-               class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover text-decoration-none">Preguntas
-               frecuentes</a></div>
-       <div><a href="#"
-               class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover text-decoration-none">Contáctanos</a>
+         
+         </form>
        </div>
-       <div><a href="#"
-               class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover text-decoration-none">Prensa</a>
-       </div>
-       <div><a href="#"
-               class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover text-decoration-none">Conferencias</a>
-       </div>
-       <div><a href="#"
-               class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover text-decoration-none">Términos
-               y condiciones</a></div>
-       <div><a href="#"
-               class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover text-decoration-none">Privacidad</a>
-       </div>
-       <div><a href="#"
-               class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover text-decoration-none">Estudiantes</a>
-       </div>
+
+
+
+   <!-- footer -->
+   <div class=" p-3  d-flex flex-md-row flex-column justify-content-md-evenly"
+      style="background-color: rgb(28, 56, 70);">
+      <div><a href="#"
+            class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover text-decoration-none">Preguntas
+            frecuentes</a></div>
+      <div><a href="#"
+            class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover text-decoration-none">Contáctanos</a>
+      </div>
+      <div><a href="#"
+            class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover text-decoration-none">Prensa</a>
+      </div>
+      <div><a href="#"
+            class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover text-decoration-none">Conferencias</a>
+      </div>
+      <div><a href="#"
+            class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover text-decoration-none">Términos
+            y condiciones</a></div>
+      <div><a href="#"
+            class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover text-decoration-none">Privacidad</a>
+      </div>
+      <div><a href="#"
+            class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover text-decoration-none">Estudiantes</a>
+      </div>
 
    </div>
 
